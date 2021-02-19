@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="sobaya.example.flowsample.registration.RegistrationViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textInput1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_input_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/margin_32"
+            android:layout_marginStart="@dimen/margin_16" />
+        <EditText
+            android:id="@+id/edit1"
+            android:text="@={viewModel.edit1}"
+            android:layout_width="@dimen/input_width"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/textInput1"
+            app:layout_constraintBottom_toBottomOf="@id/textInput1"
+            app:layout_constraintStart_toEndOf="@id/textInput1"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textInput2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_input_2"
+            app:layout_constraintStart_toStartOf="@id/textInput1"
+            app:layout_constraintEnd_toEndOf="@id/textInput1"
+            app:layout_constraintTop_toBottomOf="@id/textInput1"
+            android:layout_marginTop="@dimen/margin_16" />
+        <EditText
+            android:id="@+id/edit2"
+            android:text="@={viewModel.edit2}"
+            android:layout_width="@dimen/input_width"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/edit1"
+            app:layout_constraintEnd_toEndOf="@id/edit1"
+            app:layout_constraintTop_toTopOf="@id/textInput2"
+            app:layout_constraintBottom_toBottomOf="@id/textInput2"
+            android:layout_marginTop="@dimen/margin_16" />
+
+        <Button
+            android:id="@+id/buttonMorning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="朝"
+            android:enabled="@{viewModel.buttonMorningEnabled}"
+            android:onClick="@{(v) -> viewModel.onClickTiming(true)}"
+            app:layout_constraintTop_toBottomOf="@id/textInput2"
+            app:layout_constraintStart_toStartOf="@id/textInput2"
+            android:layout_marginTop="@dimen/margin_16" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="夜"
+            android:enabled="@{viewModel.buttonNightEnabled}"
+            android:onClick="@{(v) -> viewModel.onClickTiming(false)}"
+            app:layout_constraintStart_toEndOf="@id/buttonMorning"
+            app:layout_constraintTop_toTopOf="@id/buttonMorning"
+            android:layout_marginStart="@dimen/margin_16" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BUTTON"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
