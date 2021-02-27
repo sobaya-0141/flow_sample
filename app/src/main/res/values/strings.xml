@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FlowSample</string>
+    <string name="text_input_1">入力項目1</string>
+    <string name="text_input_2">入力項目2</string>
+</resources>
