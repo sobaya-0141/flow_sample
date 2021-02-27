@@ -8,6 +8,7 @@ import org.koin.dsl.module
 import sobaya.example.flowsample.registration.RegistrationViewModel
 import sobaya.example.flowsample.repository.SampleRepository
 import sobaya.example.flowsample.share.ShareItem
+import sobaya.example.flowsample.util.ErrorHandler
 
 class App : Application() {
     override fun onCreate() {
@@ -19,6 +20,7 @@ class App : Application() {
                     viewModel { RegistrationViewModel() }
                     single { SampleRepository() }
                     single { ShareItem() }
+                    single { ErrorHandler() }
                 }
             ))
         }
