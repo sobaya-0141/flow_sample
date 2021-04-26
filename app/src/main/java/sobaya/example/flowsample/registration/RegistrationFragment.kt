@@ -13,6 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.ldralighieri.corbind.widget.textChanges
 import sobaya.example.flowsample.R
 import sobaya.example.flowsample.databinding.FragmentRegistrationBinding
+import sobaya.example.flowsample.util.makeNotificationSettingIntent
 
 class RegistrationFragment() : Fragment(R.layout.fragment_registration) {
 
@@ -25,6 +26,10 @@ class RegistrationFragment() : Fragment(R.layout.fragment_registration) {
         binding.viewModel = viewModel
 
         viewModel.buttonMorningEnabled.observe(viewLifecycleOwner, Observer { it.toString() })
+
+        binding.button.setOnClickListener {
+            startActivity(makeNotificationSettingIntent(requireContext()))
+        }
     }
 
     private fun inputEvent() {
